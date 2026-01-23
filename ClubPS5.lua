@@ -22,7 +22,7 @@ end
 
 --image_0 is used as the rules splash screen
 local image_0 = {
-    ['src'] = 'https://cdn.numiezganggarage.com.tr/Kafeler/ClubPS5/ClubPS5.jpg',
+    ['src'] = 'https://cdn.numiezganggarage.com.tr/Kafeler/ClubPS5/ClubPS5Afis.jpg',
     ['sizeX'] = 1920,
     ['sizeY'] = 1080,
     ['scale'] = calculateMainImageScale()
