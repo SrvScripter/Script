@@ -28,19 +28,13 @@ local image_0 = {
     ['scale'] = calculateMainImageScale()
 }
 
--- Logo için ölçeklendirme hesapla (1080p referans alınır)
-local function calculateLogoScale()
-    return screensize.y / 1080
-end
-
---image_1 is used as the icon
+--image_1: sabit piksel boyut (tüm çözünürlüklerde aynı ebat; scale yok)
 local image_1 = {
     ['src'] = 'https://cdn.numiezganggarage.com.tr/NGGLogoSunucu.png',
     ['sizeX'] = 95,
     ['sizeY'] = 95,
-    ['paddingX'] = 20, -- 1080p'de sol kenardan 20 piksel içeride
-    ['paddingY'] = 10, -- 1080p'de üst kenardan 10 piksel aşağıda
-    ['scale'] = calculateLogoScale()
+    ['paddingX'] = 20, -- ekran pikseli: sol kenardan
+    ['paddingY'] = 10  -- ekran pikseli: üst kenardan
 }
 
 function script.update(dt)
@@ -72,18 +66,14 @@ function script.drawUI()
     end
 
     if hideImage and not ac.getSim().isInMainMenu then
-        -- Logoyu çözünürlüğe göre ölçekle ve sol üst köşeye yerleştir
-        local logoWidth = image_1.sizeX * image_1.scale
-        local logoHeight = image_1.sizeY * image_1.scale
-        local logoPadX = image_1.paddingX * image_1.scale
-        local logoPadY = image_1.paddingY * image_1.scale
-        local posX = logoPadX
-        local posY = logoPadY
+        -- Logo sabit piksel; sol üst köşede
+        local posX = image_1.paddingX
+        local posY = image_1.paddingY
 
         ui.drawImage(
             image_1.src,
             vec2(posX, posY),
-            vec2(posX + logoWidth, posY + logoHeight),
+            vec2(posX + image_1.sizeX, posY + image_1.sizeY),
             true
         )
     end
