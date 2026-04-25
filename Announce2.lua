@@ -22,7 +22,7 @@ end
 
 --image_0 is used as the rules splash screen
 local image_0 = {
-    ['src'] = 'https://cdn.numiezganggarage.com.tr/scripts/SunucuAfisi.png',
+    ['src'] = 'https://cdn.numiezganggarage.com.tr/scripts/vipyatay.jpg',
     ['sizeX'] = 1920,
     ['sizeY'] = 1080,
     ['scale'] = calculateMainImageScale()
