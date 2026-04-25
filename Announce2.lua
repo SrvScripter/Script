@@ -31,8 +31,8 @@ local image_0 = {
 --image_1: sabit piksel boyut (tüm çözünürlüklerde aynı ebat; scale yok)
 local image_1 = {
     ['src'] = 'https://cdn.numiezganggarage.com.tr/NGGLogoSunucu.png',
-    ['sizeX'] = 95,
-    ['sizeY'] = 95,
+    ['sizeX'] = 128,
+    ['sizeY'] = 128,
     ['paddingX'] = 20, -- ekran pikseli: sol kenardan
     ['paddingY'] = 10  -- ekran pikseli: üst kenardan
 }
