@@ -22,19 +22,19 @@ end
 
 --image_0 is used as the rules splash screen
 local image_0 = {
-    ['src'] = 'https://cdn.numiezganggarage.com.tr/scripts/SunucuAfisi.png',
+    ['src'] = 'https://cdn.numiezganggarage.com.tr/scripts/vipyatay.jpg',
     ['sizeX'] = 1920,
     ['sizeY'] = 1080,
     ['scale'] = calculateMainImageScale()
 }
 
---image_1 is used as the icon
+--image_1: sabit piksel boyut (tüm çözünürlüklerde aynı ebat; scale yok)
 local image_1 = {
-    ['src'] = 'https://cdn.numiezganggarage.com.tr/NggLogo.png',
+    ['src'] = 'https://cdn.numiezganggarage.com.tr/NGGLogoSunucu.png',
     ['sizeX'] = 128,
     ['sizeY'] = 128,
-    ['paddingX'] = 50, --use this to align it, currently 50 pixels from top right
-    ['paddingY'] = 50  --use this to align it, currently 50 pixels from top right
+    ['paddingX'] = 20, -- ekran pikseli: sol kenardan
+    ['paddingY'] = 10  -- ekran pikseli: üst kenardan
 }
 
 function script.update(dt)
@@ -66,11 +66,14 @@ function script.drawUI()
     end
 
     if hideImage and not ac.getSim().isInMainMenu then
-        -- Logoyu orijinal konumuna yerleştir
+        -- Logo sabit piksel; sol üst köşede
+        local posX = image_1.paddingX
+        local posY = image_1.paddingY
+
         ui.drawImage(
-            image_1.src, 
-            vec2(image_1.paddingX, image_1.paddingY), 
-            vec2(image_1.sizeX + image_1.paddingX, image_1.sizeY + image_1.paddingY),
+            image_1.src,
+            vec2(posX, posY),
+            vec2(posX + image_1.sizeX, posY + image_1.sizeY),
             true
         )
     end
